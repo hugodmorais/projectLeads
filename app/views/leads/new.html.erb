@@ -1,0 +1,17 @@
+<!-- Start Breadcrumb -->
+<% @bread_links = [link_to('Leads', root_url)] %>
+<% @current_bread_name = t('measurement_units.new') %>
+<!-- End Breadcrumb -->
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel panel-border panel-custom">
+      <div class="panel-heading">
+        <h3 class="panel-title text-center">New Lead</h3>
+      </div>
+      <div class="panel-body">
+        <%= render 'form', lead: @lead %>
+      </div>
+    </div>
+  </div>
+</div>

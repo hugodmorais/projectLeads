@@ -1,0 +1,39 @@
+<div class = "row">
+</div>
+
+<div class="row">
+  <div class="col s4" style="text-align: left;">
+    <%= link_to new_lead_path, class: 'waves-effect waves-light btn' do %>
+      Add Lead
+      <i class="material-icons left">add</i>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <% @leads.each do |lead| %>
+    <div class="col s6 m3">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p>First Name: <%= lead.first_name %></p>
+          <p>Last Name: <%= lead.last_name %></p>
+          <p>Zip Code: <%= lead.zip_code %></p>
+        </div>
+        <div class="card-action">
+          <%= link_to(lead_path(lead)) do %>
+            <i class="material-icons" style="color:#b2dfdb;">remove_red_eye</i>
+          <% end %>
+          <%= link_to(edit_lead_path(lead)) do %>
+            <i class="material-icons" style="color:#b2dfdb;">edit</i>
+          <% end %>
+          <%= link_to lead_path(lead), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'delete' do %>
+            <i class="material-icons" style="color:#b2dfdb;">delete</i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div class="row center">
+  <%= paginate @leads, class: "pagination teal" %>
+</div>
